@@ -2,7 +2,7 @@ package com.Epicode;
 
 import com.Epicode.MultimediaElement.mediaSet;
 
-public class Audio extends MultimediaElement implements Riproducibile{
+public class Audio extends MultimediaElement implements Riproducibile, ModVolume{
 	public int luminosita = 5 ;
 	public int duration;
 	public int volume = 5 ;
@@ -12,7 +12,7 @@ public class Audio extends MultimediaElement implements Riproducibile{
 	}
 	
 	public Audio(mediaSet mediaType, String title, int duration) {
-		super(mediaType, title);
+		super(mediaType, title + ".mp3");
 		this.duration = duration ;
 	} 
 	
@@ -32,6 +32,29 @@ public class Audio extends MultimediaElement implements Riproducibile{
 				}
 			System.out.println("");
 		}
+	}
+
+	@Override
+	public void alzaVolume() {
+		if(this.volume == 10){
+			System.out.println("Volume al massimo");
+		} else{
+			this.volume = volume + 1;
+		}
+	}
+
+	@Override
+	public void abbassaVolume() {
+		if(this.volume == 0){
+			System.out.println("Volume al minimo");
+		} else{
+			this.volume = volume - 1;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return this.mediaType + " name: " + this.title + " volume: " + this.volume ;
 	}
 
 

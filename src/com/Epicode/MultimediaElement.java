@@ -2,7 +2,7 @@ package com.Epicode;
 
 
 
-public class MultimediaElement implements Modulabile{
+public class MultimediaElement {
 	
 	public mediaSet mediaType;
 	public String title;
@@ -24,14 +24,9 @@ public class MultimediaElement implements Modulabile{
 		return this.title;
 				}
 	
-	
 	@Override
-	public void aumentaVal(int val) {
-		val = val + 1;
-	}
-	@Override
-	public void diminusiciVal(int val) {
-		val = val - 1;
+	public String toString() {
+		return this.mediaType + " name: " + this.title ;
 	}
 	
 	

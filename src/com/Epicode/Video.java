@@ -2,7 +2,7 @@ package com.Epicode;
 
 import com.Epicode.MultimediaElement.mediaSet;
 
-public class Video extends MultimediaElement implements Riproducibile{
+public class Video extends MultimediaElement implements Riproducibile, ModLum, ModVolume{
 	public int luminosita = 5 ;
 	public int volume = 5;
 	public int duration = 0;
@@ -12,7 +12,7 @@ public class Video extends MultimediaElement implements Riproducibile{
 	}
 	
 	public Video(mediaSet mediaType, String title, int duration) {
-		super(mediaType, title);
+		super(mediaType, title + ".mov");
 		this.duration = duration ;
 	}
 	
@@ -37,6 +37,47 @@ public class Video extends MultimediaElement implements Riproducibile{
 			System.out.println("");
 		}
 		
+	}
+
+	@Override
+	public void alzaVolume() {
+		if(this.volume == 10){
+			System.out.println("Volume al massimo");
+		} else{
+			this.volume = volume + 1;
+		}
+	}
+
+	@Override
+	public void abbassaVolume() {
+		if(this.volume == 0){
+			System.out.println("Volume al minimo");
+		} else{
+			this.volume = volume - 1;
+		}
+	}
+
+	@Override
+	public void alzaLum() {
+		if(this.luminosita == 10){
+			System.out.println("Luminosità al massimo");
+		} else{
+			this.luminosita = luminosita + 1;
+		}
+	}
+
+	@Override
+	public void abbassaLum() {
+		if(this.luminosita == 0){
+			System.out.println("Luminosità al minimo");
+		} else{
+			this.luminosita = luminosita - 1;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return this.mediaType + " name: " + this.title + " volume: " + this.volume + " brightness: " + this.luminosita ;
 	}
 
 }
