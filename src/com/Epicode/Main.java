@@ -1,6 +1,5 @@
 package com.Epicode;
 
-import java.io.Console;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,7 +18,7 @@ public class Main {
 		System.out.println("");
 		afterImport(multiMedia);
 		System.out.println("");
-		}
+	}
 		
 	// HANDLERS
 	static public void init(){

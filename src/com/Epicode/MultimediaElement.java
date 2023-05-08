@@ -1,7 +1,4 @@
 package com.Epicode;
-
-
-
 public class MultimediaElement {
 	
 	public mediaSet mediaType;

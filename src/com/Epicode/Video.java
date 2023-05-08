@@ -1,7 +1,4 @@
 package com.Epicode;
-
-import com.Epicode.MultimediaElement.mediaSet;
-
 public class Video extends MultimediaElement implements Riproducibile, ModLum, ModVolume{
 	public int luminosita = 5 ;
 	public int volume = 5;

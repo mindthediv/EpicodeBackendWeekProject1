@@ -1,7 +1,5 @@
 package com.Epicode;
 
-import com.Epicode.MultimediaElement.mediaSet;
-
 public class Audio extends MultimediaElement implements Riproducibile, ModVolume{
 	public int luminosita = 5 ;
 	public int duration;
