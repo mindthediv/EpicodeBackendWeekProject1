@@ -45,10 +45,10 @@ public class Main {
 			break;
 
 			case "import auto":
-			final Audio a1 = new Audio(mediaSet.AUDIO, "Freed from desire",(int) Math.floor(Math.random() * 5));
-			final Video v1 = new Video(mediaSet.VIDEO, "festa da nino",(int) Math.floor(Math.random() * 5));
-			final Audio a2 = new Audio(mediaSet.AUDIO, "Acqua e sale",(int) Math.floor(Math.random() * 5));
-			final Video v2 = new Video(mediaSet.VIDEO, "fuochi d'artificio",(int) Math.floor(Math.random() * 5));
+			final Audio a1 = new Audio(mediaSet.AUDIO, "Freed from desire",(int) Math.floor(Math.random() * 5 + 1));
+			final Video v1 = new Video(mediaSet.VIDEO, "festa da nino",(int) Math.floor(Math.random() * 5 + 1));
+			final Audio a2 = new Audio(mediaSet.AUDIO, "Acqua e sale",(int) Math.floor(Math.random() * 5 + 1));
+			final Video v2 = new Video(mediaSet.VIDEO, "fuochi d'artificio",(int) Math.floor(Math.random() * 5 + 1));
 			final Image i1 = new Image(mediaSet.IMG, "kitten");
 			multiMedia = new MultimediaElement[] {a1,v1,a2,v2,i1};
 			break;	
@@ -64,13 +64,11 @@ public class Main {
 		System.out.println("");
 		System.out.println("Per eseguirne uno, digita il numero che lo identifica.");
 		System.out.println("");
-		System.out.println("/////////////////////BETA///////////////////");
 		System.out.println("Per alzare il volume di un audio o un video, digita il numero che lo identifica e subito dopo 01. Per abbassarlo 10.");
 		System.out.println("Ad esempio, per abbassare il volume del primo file (audio/video) digita 110 ; per alzare quello del terzo 301.");
 		System.out.println("");
 		System.out.println("Per alzare la luminosità di un'immagine o un video, digita il numero che lo identifica e subito dopo 02. Per abbassarla 20.");
 		System.out.println("Ad esempio, per abbassare la luminosità del terzo file (image/video) digita 320 ; per il quarto 420.");
-		System.out.println("////////////////////////////////////////////");
 		System.out.println("");
 		System.out.println("Per visualizzare tutti i file e le relative impostazioni, digita 9");
 		System.out.println("");
@@ -261,11 +259,11 @@ public class Main {
 }
 	static public void volumeDriver(int i, Boolean dir){
 		
-		if((dir == true && multiMedia[i].mediaType == mediaSet.AUDIO) || (dir == true && multiMedia[i].mediaType == mediaSet.VIDEO) ){
-			ModVolume multi = (ModVolume) multiMedia[i];
+		if((dir == true && multiMedia[i-1].mediaType == mediaSet.AUDIO) || (dir == true && multiMedia[i-1].mediaType == mediaSet.VIDEO) ){
+			ModVolume multi = (ModVolume) multiMedia[i-1];
 			multi.alzaVolume();
-		} else if((dir == false &&  multiMedia[i].mediaType == mediaSet.AUDIO) || (dir == false && multiMedia[i].mediaType == mediaSet.VIDEO)  ){
-			ModVolume multi = (ModVolume) multiMedia[i];
+		} else if((dir == false &&  multiMedia[i-1].mediaType == mediaSet.AUDIO) || (dir == false && multiMedia[i-1].mediaType == mediaSet.VIDEO)  ){
+			ModVolume multi = (ModVolume) multiMedia[i-1];
 			multi.abbassaVolume();
 		}
 		 else {
@@ -274,11 +272,11 @@ public class Main {
 	}	
 	static public void lumDriver(int i, Boolean dir){
 		
-		if ((dir == true && multiMedia[i].mediaType == mediaSet.IMG) || (dir == true && multiMedia[i].mediaType == mediaSet.VIDEO) ) {
-			ModLum multi = (ModLum) multiMedia[i];
+		if ((dir == true && multiMedia[i-1].mediaType == mediaSet.IMG) || (dir == true && multiMedia[i-1].mediaType == mediaSet.VIDEO) ) {
+			ModLum multi = (ModLum) multiMedia[i-1];
 			multi.alzaLum();
-		} else if ((dir == false &&  multiMedia[i].mediaType == mediaSet.IMG) || (dir == false && multiMedia[i].mediaType == mediaSet.VIDEO)  ) {
-			ModLum multi = (ModLum) multiMedia[i];
+		} else if ((dir == false &&  multiMedia[i-1].mediaType == mediaSet.IMG) || (dir == false && multiMedia[i-1].mediaType == mediaSet.VIDEO)  ) {
+			ModLum multi = (ModLum) multiMedia[i-1];
 			multi.abbassaLum();
 		}
 		 else {
@@ -302,7 +300,7 @@ public class Main {
 			final Video multi  = new Video(mediaSet.VIDEO);
 			System.out.println("Inserisci il nome del video che vuoi importare");
 			nameFile(multi, input.nextLine());
-			multi.setDuration( (int) Math.floor(Math.random() * 5));
+			multi.setDuration( (int) Math.floor(Math.random() * 5 + 1));
 			multiMedia[i] = multi;
 			
 			break;
@@ -311,7 +309,7 @@ public class Main {
 			final Audio multi  = new Audio(mediaSet.AUDIO);
 			System.out.println("Inserisci il nome dell'audio che vuoi importare");
 			nameFile(multi, input.nextLine());
-			multi.setDuration( (int) Math.floor(Math.random() * 5));
+			multi.setDuration( (int) Math.floor(Math.random() * 5 + 1));
 			multiMedia[i] = multi;
 			
 			break;
